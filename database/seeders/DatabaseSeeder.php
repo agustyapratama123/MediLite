@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RoleSeeder::class,
+            PatientSeeder::class,
         ]);
 
         $adminRole = Role::where('name', 'admin')->first();
