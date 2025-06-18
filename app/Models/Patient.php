@@ -25,6 +25,13 @@ class Patient extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
+    public function insurances()
+    {
+        return $this->belongsToMany(Insurance::class, 'insurance_patient')
+                    ->withTimestamps();
+    }
     
     // public function medicalHistories() {
     //     return $this->hasMany(MedicalHistory::class, 'patient_id');

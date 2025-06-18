@@ -4,14 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Insurances extends Model
+class Insurance extends Model
 {
     protected $fillable = [
-        'patient_id',
         'provider',
         'policy_number',
         'coverage_start',
         'coverage_end',
     ];
+
+    public function patients()
+    {
+        return $this->belongsToMany(Patient::class, 'insurance_patient')
+                    ->withTimestamps();
+    }
 
 }
